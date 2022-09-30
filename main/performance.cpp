@@ -97,6 +97,7 @@ void Performance::_bind_methods() {
 	BIND_ENUM_CONSTANT(PIPELINE_COMPILATIONS_SURFACE);
 	BIND_ENUM_CONSTANT(PIPELINE_COMPILATIONS_DRAW);
 	BIND_ENUM_CONSTANT(PIPELINE_COMPILATIONS_SPECIALIZATION);
+	BIND_ENUM_CONSTANT(TIME_FPS_1_PERCENT_LOW);
 	BIND_ENUM_CONSTANT(MONITOR_MAX);
 }
 
@@ -151,6 +152,7 @@ String Performance::get_monitor_name(Monitor p_monitor) const {
 		PNAME("pipeline/compilations_surface"),
 		PNAME("pipeline/compilations_draw"),
 		PNAME("pipeline/compilations_specialization"),
+		PNAME("time/fps_1_percent_low"),
 	};
 	static_assert((sizeof(names) / sizeof(const char *)) == MONITOR_MAX);
 
@@ -247,7 +249,8 @@ double Performance::get_monitor(Monitor p_monitor) const {
 			return NavigationServer3D::get_singleton()->get_process_info(NavigationServer3D::INFO_EDGE_FREE_COUNT);
 		case NAVIGATION_OBSTACLE_COUNT:
 			return NavigationServer3D::get_singleton()->get_process_info(NavigationServer3D::INFO_OBSTACLE_COUNT);
-
+		case TIME_FPS_1_PERCENT_LOW:
+			return Math::round(Engine::get_singleton()->get_frames_per_second_1_percent_low());
 		default: {
 		}
 	}
@@ -298,7 +301,7 @@ Performance::MonitorType Performance::get_monitor_type(Monitor p_monitor) const 
 		MONITOR_TYPE_QUANTITY,
 		MONITOR_TYPE_QUANTITY,
 		MONITOR_TYPE_QUANTITY,
-
+		MONITOR_TYPE_QUANTITY,
 	};
 	static_assert((sizeof(types) / sizeof(MonitorType)) == MONITOR_MAX);
 
