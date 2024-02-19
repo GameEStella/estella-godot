@@ -6309,11 +6309,11 @@ DisplayServerX11::WindowID DisplayServerX11::_create_window(WindowMode p_mode, V
 			if (wd.xic) {
 				XUnsetICFocus(wd.xic);
 			} else {
-				WARN_PRINT("XCreateIC couldn't create wd.xic");
+				// WARN_PRINT("XCreateIC couldn't create wd.xic");
 			}
 		} else {
 			wd.xic = nullptr;
-			WARN_PRINT("XCreateIC couldn't create wd.xic");
+			// WARN_PRINT("XCreateIC couldn't create wd.xic");
 		}
 
 		_update_context(wd);
