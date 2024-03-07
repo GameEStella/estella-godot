@@ -330,6 +330,22 @@
 				Selects the specified [TreeItem] and column.
 			</description>
 		</method>
+		<method name="get_fixed_item_size" qualifiers="const">
+			<return type="Vector2i" />
+			<description>
+				Returns the fixed item size, or Vector2.ZERO if unset.
+			</description>
+		</method>
+
+		<method name="set_fixed_item_size" qualifiers="const">
+			<return type="void" />
+			<param index="0" name="item" type="Vector2i" />
+			<description>
+				Set the fixed item size, or Vector2.ZERO if unset.
+			</description>
+		</method>
+
+
 	</methods>
 	<members>
 		<member name="allow_reselect" type="bool" setter="set_allow_reselect" getter="get_allow_reselect" default="false">
