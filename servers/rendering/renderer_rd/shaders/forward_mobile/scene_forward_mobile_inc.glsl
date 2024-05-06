@@ -220,8 +220,10 @@ layout(set = 0, binding = 2) uniform sampler shadow_sampler;
 #define INSTANCE_FLAGS_USE_VOXEL_GI (1 << 10)
 #define INSTANCE_FLAGS_PARTICLES (1 << 11)
 #define INSTANCE_FLAGS_PARTICLE_TRAIL_SHIFT 16
+#define INSTANCE_FLAGS_FADE_SHIFT 24
 //3 bits of stride
 #define INSTANCE_FLAGS_PARTICLE_TRAIL_MASK 0xFF
+#define INSTANCE_FLAGS_FADE_MASK 0xFF
 
 layout(set = 0, binding = 3, std430) restrict readonly buffer OmniLights {
 	LightData data[];
