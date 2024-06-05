@@ -629,6 +629,9 @@ TypedArray<int> ScriptLanguage::CodeCompletionOption::get_option_cached_characte
 }
 
 void ScriptLanguage::_bind_methods() {
+	ClassDB::bind_method(D_METHOD("get_type"), &ScriptLanguage::get_type);
+	ClassDB::bind_method(D_METHOD("get_name"), &ScriptLanguage::get_name);
+
 	BIND_ENUM_CONSTANT(SCRIPT_NAME_CASING_AUTO);
 	BIND_ENUM_CONSTANT(SCRIPT_NAME_CASING_PASCAL_CASE);
 	BIND_ENUM_CONSTANT(SCRIPT_NAME_CASING_SNAKE_CASE);
