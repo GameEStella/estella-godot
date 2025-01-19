@@ -86,7 +86,7 @@ public:
 	inline void				ForceEarlyOut()									{ mEarlyOutFraction = TraitsType::ShouldEarlyOutFraction; }
 
 	/// When true, the collector will no longer accept any additional hits and the collision detection routine should early out as soon as possible
-	inline bool				ShouldEarlyOut() const							{ return mEarlyOutFraction <= TraitsType::ShouldEarlyOutFraction; }
+	virtual bool				ShouldEarlyOut() const							{ return mEarlyOutFraction <= TraitsType::ShouldEarlyOutFraction; }
 
 	/// Get the current early out value
 	inline float			GetEarlyOutFraction() const						{ return mEarlyOutFraction; }

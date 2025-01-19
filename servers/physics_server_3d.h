@@ -121,6 +121,7 @@ class PhysicsDirectSpaceState3D : public Object {
 	GDCLASS(PhysicsDirectSpaceState3D, Object);
 
 private:
+	TypedArray<Dictionary> _intersect_ray_multiple(const Ref<PhysicsRayQueryParameters3D> &p_ray_query);
 	Dictionary _intersect_ray(const Ref<PhysicsRayQueryParameters3D> &p_ray_query);
 	TypedArray<Dictionary> _intersect_point(const Ref<PhysicsPointQueryParameters3D> &p_point_query, int p_max_results = 32);
 	TypedArray<Dictionary> _intersect_shape(const Ref<PhysicsShapeQueryParameters3D> &p_shape_query, int p_max_results = 32);
@@ -157,6 +158,7 @@ public:
 		int face_index = -1;
 	};
 
+	virtual bool intersect_ray_multiple(const RayParameters &p_parameters, Vector<RayResult> &r_results) = 0;
 	virtual bool intersect_ray(const RayParameters &p_parameters, RayResult &r_result) = 0;
 
 	struct ShapeResult {
