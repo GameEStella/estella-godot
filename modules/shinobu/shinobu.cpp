@@ -83,6 +83,7 @@ void ma_free_godot(void *p, void *p_user_data) {
 }
 
 static ma_result ma_decoding_backend_init_file__libvorbis(void *pUserData, const char *pFilePath, const ma_decoding_backend_config *pConfig, const ma_allocation_callbacks *pAllocationCallbacks, ma_data_source **ppBackend) {
+
 	ma_result result;
 	ma_libvorbis *pVorbis;
 

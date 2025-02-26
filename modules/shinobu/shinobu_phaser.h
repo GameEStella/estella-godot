@@ -181,43 +181,43 @@ MA_API void ma_phaser_node_uninit(ma_phaser_node* pPhaserNode, const ma_allocati
 
 // Getter/setter implementations with atomic operations for thread safety
 MA_API void ma_phaser_node_set_range_min_hz(ma_phaser_node* pPhaserNode, float min_hz) {
-    c89atomic_exchange_f32(&pPhaserNode->range_min, min_hz);
+    ma_atomic_exchange_f32(&pPhaserNode->range_min, min_hz);
 }
 
 MA_API void ma_phaser_node_set_range_max_hz(ma_phaser_node* pPhaserNode, float max_hz) {
-    c89atomic_exchange_f32(&pPhaserNode->range_max, max_hz);
+    ma_atomic_exchange_f32(&pPhaserNode->range_max, max_hz);
 }
 
 MA_API void ma_phaser_node_set_rate_hz(ma_phaser_node* pPhaserNode, float rate_hz) {
-    c89atomic_exchange_f32(&pPhaserNode->rate, rate_hz);
+    ma_atomic_exchange_f32(&pPhaserNode->rate, rate_hz);
 }
 
 MA_API void ma_phaser_node_set_feedback(ma_phaser_node* pPhaserNode, float feedback) {
-    c89atomic_exchange_f32(&pPhaserNode->feedback, feedback);
+    ma_atomic_exchange_f32(&pPhaserNode->feedback, feedback);
 }
 
 MA_API void ma_phaser_node_set_depth(ma_phaser_node* pPhaserNode, float depth) {
-    c89atomic_exchange_f32(&pPhaserNode->depth, depth);
+    ma_atomic_exchange_f32(&pPhaserNode->depth, depth);
 }
 
 MA_API float ma_phaser_node_get_range_min_hz(ma_phaser_node* pPhaserNode) {
-    return c89atomic_load_f32(&pPhaserNode->range_min);
+    return ma_atomic_load_f32(&pPhaserNode->range_min);
 }
 
 MA_API float ma_phaser_node_get_range_max_hz(ma_phaser_node* pPhaserNode) {
-    return c89atomic_load_f32(&pPhaserNode->range_max);
+    return ma_atomic_load_f32(&pPhaserNode->range_max);
 }
 
 MA_API float ma_phaser_node_get_rate_hz(ma_phaser_node* pPhaserNode) {
-    return c89atomic_load_f32(&pPhaserNode->rate);
+    return ma_atomic_load_f32(&pPhaserNode->rate);
 }
 
 MA_API float ma_phaser_node_get_feedback(ma_phaser_node* pPhaserNode) {
-    return c89atomic_load_f32(&pPhaserNode->feedback);
+    return ma_atomic_load_f32(&pPhaserNode->feedback);
 }
 
 MA_API float ma_phaser_node_get_depth(ma_phaser_node* pPhaserNode) {
-    return c89atomic_load_f32(&pPhaserNode->depth);
+    return ma_atomic_load_f32(&pPhaserNode->depth);
 }
 
 #endif // MINIAUDIO_IMPLEMENTATION

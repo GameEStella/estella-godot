@@ -98,12 +98,15 @@ public:
 	virtual Error init() override;
 	virtual void start() override;
 	virtual int get_mix_rate() const override;
+	virtual int get_mix_buffer_size() const override;
 	virtual int get_input_mix_rate() const override;
 	virtual SpeakerMode get_speaker_mode() const override;
 
 	virtual void lock() override;
 	virtual void unlock() override;
 	virtual void finish() override;
+
+	virtual float get_latency() override;
 
 #ifdef MACOS_ENABLED
 	virtual PackedStringArray get_output_device_list() override;

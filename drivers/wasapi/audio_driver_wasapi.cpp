@@ -612,6 +612,10 @@ int AudioDriverWASAPI::get_mix_rate() const {
 	return mix_rate;
 }
 
+int AudioDriverWASAPI::get_mix_buffer_size() const {
+	return buffer_frames;
+}
+
 float AudioDriverWASAPI::get_latency() {
 	return real_latency;
 }

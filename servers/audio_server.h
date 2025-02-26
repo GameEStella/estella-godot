@@ -101,7 +101,8 @@ public:
 	virtual int get_mix_rate() const = 0;
 	virtual int get_input_mix_rate() const { return get_mix_rate(); }
 	virtual SpeakerMode get_speaker_mode() const = 0;
-	virtual float get_latency() { return 0; }
+	virtual float get_latency() = 0;
+	virtual int get_mix_buffer_size() const = 0;
 
 	virtual void lock() = 0;
 	virtual void unlock() = 0;
@@ -204,6 +205,7 @@ public:
 		MAX_CHANNELS_PER_BUS = 4,
 		MAX_BUSES_PER_PLAYBACK = 6,
 		LOOKAHEAD_BUFFER_SIZE = 64,
+		DEFAULT_MIX_BUFFER_SIZE = 512,
 	};
 
 	typedef void (*AudioCallback)(void *p_userdata);

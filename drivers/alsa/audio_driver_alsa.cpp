@@ -273,6 +273,10 @@ int AudioDriverALSA::get_mix_rate() const {
 	return mix_rate;
 }
 
+int AudioDriverALSA::get_mix_buffer_size() const {
+	return static_cast<int>(period_size);
+}
+
 AudioDriver::SpeakerMode AudioDriverALSA::get_speaker_mode() const {
 	return speaker_mode;
 }
@@ -344,6 +348,13 @@ void AudioDriverALSA::finish() {
 	}
 
 	finish_output_device();
+}
+
+float AudioDriverALSA::get_latency() {
+	if (mix_rate == 0) {
+		return 0;
+	}
+	return static_cast<float>(period_size) / mix_rate;
 }
 
 #endif // ALSA_ENABLED

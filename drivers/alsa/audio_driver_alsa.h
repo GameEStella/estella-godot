@@ -80,6 +80,7 @@ public:
 	virtual Error init() override;
 	virtual void start() override;
 	virtual int get_mix_rate() const override;
+	virtual int get_mix_buffer_size() const override;
 	virtual SpeakerMode get_speaker_mode() const override;
 
 	virtual void lock() override;
@@ -89,6 +90,8 @@ public:
 	virtual PackedStringArray get_output_device_list() override;
 	virtual String get_output_device() override;
 	virtual void set_output_device(const String &p_name) override;
+
+	virtual float get_latency() override;
 
 	AudioDriverALSA() {}
 	~AudioDriverALSA() {}
